@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koustubh Javheri — Full Stack .NET Leader</title>
+  <style>
+    :root{
+      --bg: #0f1420;
+      --sidebar: #121826;
+      --card: #0c1624;
+      --pill: #0f2342;
+      --accent: #1f6fe5;
+      --accent-2:#063e8d;
+      --text-strong:#ffffff;
+      --text:#e5ecff;
+      --muted:#a9b4cf;
+      --divider:#20314b;
+      --chip:#162841;
+      --shadow: 0 8px 24px rgba(4,10,25,.45);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: radial-gradient(1200px 800px at 20% -10%, #1c2a44 0%, #0b1220 45%, #070c16 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    .page{ max-width: 1000px; margin: 24px auto; padding: 16px; }
+    .grid{ display:grid; grid-template-columns: 320px 1fr; gap:18px; }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+    /* Sidebar */
+    .sidebar{
+      background:linear-gradient(180deg, var(--sidebar) 0%, #0e1422 100%);
+      border-radius: var(--radius);
+      padding:22px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .avatar-wrap{
+      position: relative;
+      background: linear-gradient(135deg, #17305a 0%, #0c1d38 100%);
+      border-radius: 14px;
+      padding: 18px 18px 16px 18px;
+      margin-bottom: 20px;
+      text-align:center;
+      color:#9fb6e8;
+      font-size:13px;
+    }
+    .avatar{
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display:block;
+      margin: 4px auto 12px auto;
+      object-fit: cover;
+      border: 6px solid rgba(255,255,255,.08);
+      box-shadow: 0 12px 26px rgba(0,0,0,.45);
+      background:#0b1931;
+    }
+    .pill{
+      display:inline-block;
+      background: var(--pill);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      letter-spacing: .2px;
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    }
+    .about{
+      background: #0c1624;
+      border:1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      padding:14px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .section-title{
+      margin:18px 0 8px 0;
+      font-weight: 700;
+      color: var(--text-strong);
+      font-size: 14px;
+      letter-spacing:.3px;
+      text-transform: uppercase;
+    }
+    .list{ margin: 0; padding: 0; list-style: none; }
+    .list li{
+      margin: 8px 0;
+      background: var(--chip);
+      border:1px solid rgba(255,255,255,.06);
+      color: var(--text);
+      padding:8px 12px;
+      border-radius: 12px;
+      display:flex; align-items:center; gap:10px;
+      font-size: 14px;
+    }
+    .bullet{ 
+      width:8px; height:8px; border-radius:50%; 
+      background: linear-gradient(180deg, #3c82ff, #0e4bb8);
+      box-shadow: 0 0 0 4px rgba(31,111,229,.12);
+      flex: 0 0 8px;
+    }
+    .contact-item{
+      display:flex; gap:10px; align-items:center;
+      background: #0c1624;
+      border:1px solid rgba(255,255,255,.06);
+      padding:10px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 8px;
+      word-break: break-word;
+    }
+    .icon{
+      width: 18px; height: 18px; border-radius:6px;
+      background: linear-gradient(180deg, #2c64d7, #1448a5);
+      display:inline-block;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+      flex:0 0 18px;
+    }
+
+    /* Main column */
+    .main{ position: relative; }
+    .name-band{
+      position: relative;
+      background: linear-gradient(135deg, var(--accent) 0%, #1658c3 60%, #0d46a2 100%);
+      color:#fff;
+      padding: 26px 22px 22px 22px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .name-band::after{
+      content:"";
+      position:absolute; inset:-30% -20% auto auto;
+      width: 340px; height: 340px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.16), rgba(255,255,255,0) 60%);
+      transform: translate(40px,-80px);
+      pointer-events:none;
+    }
+    .name{ margin:0; font-size: clamp(22px, 3.4vw, 32px); font-weight: 800; letter-spacing: .2px; }
+    .role{ margin:6px 0 0 0; font-size: 16px; opacity:.95; font-weight:600; }
+
+    .card{
+      background: linear-gradient(180deg, #0b1627 0%, #0a1422 100%);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-top: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{
+      margin:0 0 12px 0;
+      font-size:15px;
+      text-transform: uppercase;
+      letter-spacing:.35px;
+      display:inline-block;
+      background: var(--pill);
+      color: var(--text);
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.07);
+    }
+    .xp-item + .xp-item{ border-top:1px dashed var(--divider); margin-top:12px; padding-top:12px; }
+    .xp-role{ margin:0; color:var(--text-strong); font-weight:700; }
+    .xp-meta{ margin:4px 0 8px; color:var(--muted); font-size: 13px; }
+    .xp ul{ margin:0 0 0 18px; }
+    .xp li{ margin:6px 0; }
+
+    .edu-item + .edu-item{ border-top:1px dashed var(--divider); margin-top:12px; padding-top:12px; }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+    .chip{
+      background: var(--chip);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--text);
+      padding:8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    a{ color:#9fc1ff; text-decoration:none; }
+    a:hover{ text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="grid">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Profile and details">
+        <div class="avatar-wrap">
+          <!-- Your photo -->
+          <img class="avatar" src="1723990903652.png" alt="Profile photo of Koustubh Javheri" loading="lazy" />
+          <div class="pill">About Me</div>
+        </div>
+
+        <div class="about">
+          <p>
+            Full‑stack .NET leader with 12+ years building enterprise systems across
+            banking and fintech. Expert in C#, ASP.NET, Web API, .NET Core, SQL Server,
+            and modern front‑end (Angular/React/Blazor/MAUI). Strong in microservices,
+            REST/gRPC, and Windows apps; cloud across Azure, AWS & GCP; and event/data
+            platforms (Kubernetes, Docker, Kafka). Built secure OAuth2/PCI‑DSS/SOX‑ready
+            APIs; integrated ISO 20022, SWIFT, ACH; led Agile teams with CI/CD and DevSecOps.
+          </p>
+        </div>
+
+        <h4 class="section-title">Contact</h4>
+        <div class="contact-item">
+          <span class="icon" aria-hidden="true"></span>
+          <a href="mailto:javherikg@outlook.com">javherikg@outlook.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="icon" aria-hidden="true"></span>
+          <a href="tel:+918792839996">+91&nbsp;87928&nbsp;39996</a>
+        </div>
+        <div class="contact-item">
+          <span class="icon" aria-hidden="true"></span>
+          <span>Bengaluru · Hebbal · 560094</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon" aria-hidden="true"></span>
+          <a href="https://www.linkedin.com/in/koustubh-javheri/" target="_blank" rel="noopener">linkedin.com/in/koustubh-javheri</a>
+        </div>
+
+        <h4 class="section-title">Key Skills</h4>
+        <ul class="list">
+          <li><span class="bullet"></span> C#, ASP.NET, .NET Core, Web API, gRPC</li>
+          <li><span class="bullet"></span> Angular, React, Blazor, MAUI</li>
+          <li><span class="bullet"></span> SQL Server, PostgreSQL, MySQL, MongoDB</li>
+          <li><span class="bullet"></span> Microservices, RESTful APIs, Windows Apps</li>
+          <li><span class="bullet"></span> Azure, AWS, Google Cloud, Kubernetes, Docker</li>
+          <li><span class="bullet"></span> OAuth2, PCI‑DSS, SOX, GDPR, PSD2</li>
+          <li><span class="bullet"></span> DevOps/CI‑CD: Azure DevOps, GitHub Actions, Jenkins</li>
+          <li><span class="bullet"></span> Banking Integrations: ISO 20022, SWIFT, ACH</li>
+        </ul>
+
+        <h4 class="section-title">Awards</h4>
+        <ul class="list">
+          <li><span class="bullet"></span> Best Presentation — HCL Technologies (2023)</li>
+          <li><span class="bullet"></span> Analyzer Award — Capgemini (2019)</li>
+        </ul>
+      </aside>
+
+      <!-- Main column -->
+      <section class="main">
+        <header class="name-band">
+          <h1 class="name">Koustubh Javheri</h1>
+          <p class="role">Full Stack .NET Team Lead • Cloud & Microservices</p>
+        </header>
+
+        <article class="card xp">
+          <h3>Experience</h3>
+
+          <div class="xp-item">
+            <p class="xp-role">Team Lead — Genesis System Pvt. Ltd. (Client: Tapestry)</p>
+            <p class="xp-meta">Jan 2025 – Jan 2026 · Bengaluru</p>
+            <ul>
+              <li>Led e‑commerce & store‑management platform across Angular 16, .NET Core 8, Web API 2, Blazor, SSRS, Azure, SQL Server 2019, Microservices.</li>
+              <li>Owned API policies, Swagger documentation, service dashboards, approvals, and defect resolution.</li>
+              <li>Enabled real‑time analytics, dynamic pricing, and high‑performance scalable backend.</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Team Lead — ACL Technology (Client: Motorola Solutions)</p>
+            <p class="xp-meta">Aug 2024 – Dec 2024 · Bengaluru</p>
+            <ul>
+              <li>Purchase & Invoice Management (TLK100/TLK150): Angular 16, .NET Core 8, Azure, SSRS, SQL Server 2019, Microservices.</li>
+              <li>Implemented barcode‑driven workflows, automated approvals, Blazor tracking modules, DevApp/MAUI cross‑platform support.</li>
+              <li>Contributions: bug fixes, API policy, Swagger, change approvals, operational dashboards.</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Team Lead — HCL Technologies (Clients: ING Bank, Danske Bank)</p>
+            <p class="xp-meta">Mar 2021 – Jun 2024 · Bengaluru</p>
+            <ul>
+              <li><strong>ING Bank — Credit/Debit Billing Optimization:</strong> Angular 16, .NET Core 8, Azure, SSRS; reduced manual effort with algorithmic accuracy and real‑time transparency.</li>
+              <li><strong>Danske Bank — Elastic Server Management:</strong> Terraform‑enabled scaling for microservices; GraphQL/Prisma with RedwoodJS, automated API generation, high performance.</li>
+              <li>Contributions: API changes, backlog creation, approvals, defect triage, and delivery leadership (team sizes up to 46).</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Senior Software Engineer — Capgemini (Client: Cargill India)</p>
+            <p class="xp-meta">Aug 2018 – Mar 2021 · Bengaluru</p>
+            <ul>
+              <li>Modernized VB 6.0 systems to .NET (Core 3/MVC5), Angular 10, Web API 2, SSRS, Azure; secured services with token‑based auth.</li>
+              <li>Migrated modules (payroll, transportation, production) with minimal disruption; drove performance and security improvements.</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Senior Software Engineer — Marlabs (Client: Managed Care Organization)</p>
+            <p class="xp-meta">Apr 2017 – Dec 2017 · Bengaluru</p>
+            <ul>
+              <li>Claims management for workplace injuries: ASP.NET MVC 5, Web API 2, Azure, SSRS.</li>
+              <li>Built MVC views, database integrations, peer reviews, and reporting for real‑time insights.</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Senior Software Engineer — Ascendum Solutions (Client: Intel Security)</p>
+            <p class="xp-meta">Sep 2014 – Oct 2015 · Bengaluru</p>
+            <ul>
+              <li>AccuRev SCM integration & optimization with ASP.NET, MVC5, EF, SQL Server 2012.</li>
+              <li>Automated code sharing, ITS integration, and improved collaboration and quality.</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Software Developer — Vedicventures Learnings (Client: Tupoints)</p>
+            <p class="xp-meta">Dec 2011 – Jun 2014 · Bengaluru</p>
+            <ul>
+              <li>Self‑learning program for CBSE/ICSE: Windows Forms, WPF, OOP, XML, SQLite3, SQL Server 2010.</li>
+              <li>Delivered animated lessons, assessments, and performance tracking aligned to curricula.</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Software Programmer — Rajiv Gandhi Rural Housing Corp. (Govt.)</p>
+            <p class="xp-meta">Jun 2010 – Aug 2010 · Bengaluru</p>
+            <ul>
+              <li>Self‑Help Housing Development Project: ASP.NET 3.5, C#/VB.NET, MS Access, Silverlight 4.0, SQL Server 2005/Reports.</li>
+              <li>Focused on coding, bug fixing, peer reviews, and maintenance.</li>
+            </ul>
+          </div>
+
+          <div class="xp-item">
+            <p class="xp-role">Software Engineer — Info Dynamic Software Systems (Project: Dynamic CBS)</p>
+            <p class="xp-meta">Apr 2008 – May 2009 · Pune</p>
+            <ul>
+              <li>Core Banking Solution: VB 6.0/VB.NET, Oracle 8i, WSDL/Web services, WCF, Crystal Reports.</li>
+              <li>Centralized operations, multi‑channel access, and high transaction capacity.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Education</h3>
+          <div class="edu-item">
+            <p class="xp-role">B.E. (Computer Engineering) — DNV, Pune</p>
+            <p class="xp-meta">2006 · Percentage: 72%</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Additional Knowledge</h3>
+          <div class="chips">
+            <span class="chip">Angular 16–19</span>
+            <span class="chip">React.js</span>
+            <span class="chip">Blazor</span>
+            <span class="chip">MAUI</span>
+            <span class="chip">ASP.NET Core 8</span>
+            <span class="chip">Web API 2</span>
+            <span class="chip">SSRS</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Azure / AWS / GCP</span>
+            <span class="chip">Kafka</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">GitHub Actions / Azure DevOps / Jenkins</span>
+            <span class="chip">Tableau, Swagger, Postman, Jira</span>
+            <span class="chip">Unity, Blender, WebGL (Three.js/Babylon.js)</span>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
+``
